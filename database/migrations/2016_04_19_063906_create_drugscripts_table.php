@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServicesTable extends Migration
+class CreateDrugscriptsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,22 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('drugscripts', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('service_type');
-            $table->float('service_cost');
+            $table->integer('drug_id')->unsigned()->index();
+            $table->integer('num_refills');
+            $table->integer('qty');
+            $table->text('instructions');
 
             $table->timestamps();
         });
-        Schema::create('patientvisit_service', function (Blueprint $table) {
+        Schema::create('drugscripts_patientvisits', function (Blueprint $table) {
 
             $table->integer('patientvisit_id')->unsigned()->index();
             $table->foreign('patientvisit_id')->references('id')->on('patientvisits')->onDelete('cascade');
 
-            $table->integer('service_id')->unsigned()->index();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->integer('drugscript_id')->unsigned()->index();
+            $table->foreign('drugscript_id')->references('id')->on('drugscripts')->onDelete('cascade');
 
 
             $table->timestamps();
@@ -39,7 +41,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('services');
-        Schema::drop('patientvisit_service');
+        Schema::drop('drugscripts');
     }
 }

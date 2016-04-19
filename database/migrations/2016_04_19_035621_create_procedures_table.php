@@ -14,6 +14,9 @@ class CreateProceduresTable extends Migration
     {
         Schema::create('procedures', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('procedure_name');
+            $table->float('procedure_cost');
+
             $table->timestamps();
         });
     }

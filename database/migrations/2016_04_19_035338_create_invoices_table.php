@@ -13,13 +13,13 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->increments('invoice_id');
+            $table->increments('id');
             $table->date('bill_date'); 
             $table->float('total_amount');
             $table->date('due_date'); 
             $table->float('amount_paid');
-            $table->integer('patients_id')->unsigned();
-            $table->foreign('patients_id')->references->('patients_id')->on('patients')->onDelete('cascade');
+            $table->integer('patientvisit_id')->unsigned()->index();
+            $table->integer('parent_id')->unsigned()->index();
             $table->timestamps();
         });
     }

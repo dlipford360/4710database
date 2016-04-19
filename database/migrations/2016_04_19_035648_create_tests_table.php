@@ -14,6 +14,10 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('test_name');
+            $table->float('test_cost');
+            $table->float('test_time');
+
             $table->timestamps();
         });
     }

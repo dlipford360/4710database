@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferralsTable extends Migration
+class CreateDiagnosisnotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,18 @@ class CreateReferralsTable extends Migration
      */
     public function up()
     {
-        Schema::create('referrals', function (Blueprint $table) {
+        Schema::create('diagnosisnotes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('staff_id')->unsigned()->index();
+            $table->integer('diagnosis_id')->unsigned()->index();
+            $table->text('date_of_onset');
+            $table->text('symptoms');
+            $table->text('severity');
+            $table->text('prognosis');
             $table->integer('patientvisit_id')->unsigned()->index();
-            $table->text('doctor_name');
-            $table->text('referral_reason');
+
             $table->timestamps();
         });
+
     }
 
     /**
@@ -29,6 +33,6 @@ class CreateReferralsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('referrals');
+        Schema::drop('diagnosisnotes');
     }
 }
