@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/4710', 'fourseventencontroller@index');
+Route::post('/4710', 'Fourseventencontroller@index2');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
