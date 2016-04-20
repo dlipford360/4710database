@@ -2,18 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
-    }
-}
 
 class PolicysTableSeeder extends Seeder
 {
@@ -28,7 +16,7 @@ class PolicysTableSeeder extends Seeder
 
         foreach(range(1,10) as $index)
         {
-        	policys::create([
+        	App\Policy::create([
         		'company' => $faker->company, 
         		'policy_type' => $faker->word,
         		'medical_copay' => $faker->randomDigit, 
