@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Patient;
 use App\Http\Requests;
+use App\Invoice;
+use App\Patientvisit;
 
 class Fourseventencontroller extends Controller
 {
@@ -22,5 +24,26 @@ class Fourseventencontroller extends Controller
 
 
         return 'asdf';
+    }
+    public function index3()
+    {
+        $patients = Patient::all();
+
+
+        return view('first', compact('patients'));
+    }
+    public function invoicepage()
+    {
+        $invoices = Invoice::all();
+
+
+        return view('invoices', compact('invoices'));
+    }
+    public function patientvisitpage()
+    {
+        $patientvisits = Patientvisit::all();
+
+
+        return view('patientvisits', compact('patientvisits'));
     }
 }

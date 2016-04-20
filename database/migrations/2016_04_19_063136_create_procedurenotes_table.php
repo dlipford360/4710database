@@ -39,5 +39,6 @@ class CreateProcedurenotesTable extends Migration
     public function down()
     {
         Schema::drop('procedurenotes');
+        Schema::drop('patientvisit_procedurenote');
     }
 }

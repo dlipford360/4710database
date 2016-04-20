@@ -11,7 +11,7 @@ class Patient extends Model
     	return $this->belongsTo('App\Policy');
     }
 
-    public function Patientvisit()
+    public function Patientvisits()
     {
     	return $this->hasMany('App\Patientvisit');
     }

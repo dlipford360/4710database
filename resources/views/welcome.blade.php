@@ -16,6 +16,9 @@
                     {!! Form::close() !!}
 
                 </div>
+                <a href='4710/patients'> patients and their associated policy</a><br>
+                <a href='4710/invoices'> invoices</a><br>
+                <a href='4710/patientvisits'> patient visits</a><br>
             </div>
         </div>
     </div>

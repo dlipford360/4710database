@@ -18,15 +18,19 @@ class Patientvisit extends Model
 
     public function Referral()
     {
-    	return $this->belongsTo('App\Referral'); 
+        return $this->belongsTo('App\Referral');
+    }
+    public function Staff()
+    {
+        return $this->belongsTo('App\Staff');
     }
 
     public function Service()
     {
-    	return $this->hasMany('App\Service'); 
+    	return $this->belongsToMany('App\Service');
     }
  
-    public function Procedurenote()
+    public function Procedurenotes()
     {
     	return $this->hasMany('App\Procedurenote');
     }
@@ -40,4 +44,5 @@ class Patientvisit extends Model
     {
     	return $this->hasMany('App\Diagnosisnote'); 
     }
+
 }

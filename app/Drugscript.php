@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Procedurenote extends Model
+class Drugscript extends Model
 {
-    public function Procedure()
-    {
-    	return $this->hasOne('App\Procedure');
-    }
-
     public function Patientvisit()
     {
         return $this->belongsTo('App\Patientvisit');
+    }
+    public function Drug()
+    {
+        return $this->belongsTo('App\Drug');
     }
 }

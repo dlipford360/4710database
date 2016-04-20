@@ -21,7 +21,7 @@ class CreateDrugscriptsTable extends Migration
 
             $table->timestamps();
         });
-        Schema::create('drugscripts_patientvisits', function (Blueprint $table) {
+        Schema::create('drugscript_patientvisit', function (Blueprint $table) {
 
             $table->integer('patientvisit_id')->unsigned()->index();
             $table->foreign('patientvisit_id')->references('id')->on('patientvisits')->onDelete('cascade');
@@ -42,5 +42,6 @@ class CreateDrugscriptsTable extends Migration
     public function down()
     {
         Schema::drop('drugscripts');
+        Schema::drop('drugscript_patientvisit');
     }
 }
