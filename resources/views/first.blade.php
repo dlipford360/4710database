@@ -1,60 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>Patients + Policy</h1>
 
-@foreach($patients as $id => $patient)
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-        <table class="table table-striped table-responsive" style="table-layout:fixed">
+        <table class="table table-striped">
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>Phone</th>
+                    <th>Date of Birth</th>
+                    <th>RTI</th>
+                    <th>Invoice ID</th>
+                    <th>Company</th>
+                    <th>Medical Copay</th>
+                    <th>Lab Copay</th>
+                    <th>Pharmacy Copay</th>
+                </tr>
+            </thread>
+        </tbody>
+        @foreach($patients as $id => $patient)
             <tr>
-
-                    <td><label  style="width: 22%; display:inline-block"><a> {{$patient->name}}</a></label></td>
-
-
+                <td>{{$patient->id}}</td>
+                <td>{{$patient->phone}}</td>
+                <td>{{$patient->dob}}</td>
+               <td>{{$patient->relationship_to_insured}}</td>
+                <td>{{$patient->policy->id}}</td>
+                <td>{{$patient->policy->policy_type}}</td>
+                <td>{{$patient->policy->medical_copay}}</td>
+                <td>{{$patient->policy->lab_copay}}</td>
+                <td>{{$patient->policy->pharmacy_copay}}</td>
             </tr>
-        </table>
-
-        <table width="100%">
-            <tr>
-                <td>
-                    <div class="row">
-                        <div>
-                            <div class="col-md-6"  >
-                                <ul class="list-unstyled">
-
-                                    <li><label  >id:</label> {{$patient->id}}</li>
-                                    <li><label>phone:</label> {{$patient->phone}}</li>
-                                    <li><label>date of birth:</label> {{$patient->dob}}</li>
-                                    <li><label  >relationship to insured:</label>{{$patient->relationship_to_insured}}</li>
-
-                            </ul>
-                            </div>
-                            <div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li><label  >POLICY INFO:</label></li>
-
-                        <li><label >invoice number:</label>{{$patient->policy->id}}</li>
-                                    <li><label >company:</label>{{$patient->policy->policy_type}}</li>
-                                    <li><label >medical copay:</label>{{$patient->policy->medical_copay}}</li>
-                                    <li><label >lab copay:</label>{{$patient->policy->lab_copay}}</li>
-                                    <li><label >pharmacy copay:</label>{{$patient->policy->pharmacy_copay}}</li>
-
-                                </ul>
-                    </div>
-
-                    </div>
-
-                        </div>
-                    </div>
-                </td>
-            </tr>
-
-        </table>
-        </div>
-                </div> </div> </div> </div> </div>
-@endforeach
+    @endforeach
+        </tbody>
+    </table>
+</div>
     @endsection
