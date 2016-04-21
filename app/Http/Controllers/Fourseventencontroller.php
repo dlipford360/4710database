@@ -7,7 +7,7 @@ use App\Patient;
 use App\Http\Requests;
 use App\Invoice;
 use App\Patientvisit;
-
+use DB;
 class Fourseventencontroller extends Controller
 {
     public function index()
@@ -19,11 +19,17 @@ class Fourseventencontroller extends Controller
 //return view( 'tripdatabase', compact('surveys') );
         return view('welcome');
     }
-    public function index2(Request $request)
+    public function store(Request $request)
     {
+       // $request->input('sqlquery');
 
+        $results = DB::select( DB::raw($request->input('sqlquery')) );
+        $arrazy = json_decode(json_encode($results), true);
+        $valz = array_values($arrazy);
+       // dd($valz);
 
-        return 'asdf';
+        //dd($arrazy);
+        return view('sqlresults', compact('arrazy','valz'));
     }
     public function index3()
     {

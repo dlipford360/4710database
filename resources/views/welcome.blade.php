@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
-                    {!! Form::open(['url'=>'index2' ]) !!}
+                    {!! Form::open(['method'=>'POST', 'action' => 'fourseventencontroller@store'   ]) !!}
                     {!! Form::label('sqlquery', 'Sql Query') !!}
                     {!! Form::text('sqlquery' , null, ['class' => 'form-control', 'placeholder'=>'type sql query here']) !!}
                     {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}

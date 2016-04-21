@@ -18,7 +18,7 @@ Route::get('/4710', 'fourseventencontroller@index');
 Route::get('/4710/patients', 'fourseventencontroller@index3');
 Route::get('/4710/invoices', 'fourseventencontroller@invoicepage');
 Route::get('/4710/patientvisits', 'fourseventencontroller@patientvisitpage');
-Route::post('/4710', 'Fourseventencontroller@index2');
+Route::post('/4710', 'fourseventencontroller@store');
 
 Route::auth();
 
