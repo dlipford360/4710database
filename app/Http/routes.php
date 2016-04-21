@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use DatabaseSeeder;
+use DB;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,8 +34,31 @@ Route::get('/4710/service', 'fourseventencontroller@servicepage');
 Route::get('/4710/staff', 'fourseventencontroller@staffpage');
 Route::get('/4710/test', 'fourseventencontroller@testpage');
 
-Route::post('/4710', 'Fourseventencontroller@index2');
+
+
+Route::post('/4710', 'fourseventencontroller@store');
+
 
 Route::auth();
+Route::get('/renewdb', function(){
+$asdf = new DatabaseSeeder;
+    $asdf->run();
+echo 'database filled';
 
+});
+Route::get('/cleardb', function(){
+    $tableNames = Schema::getConnection()->getDoctrineSchemaManager()->listTableNames();
+    foreach ($tableNames as $name) {
+        //if you don't want to truncate migrations
+        if ($name == 'migrations') {
+            continue;
+        }
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
+
+
+        DB::table($name)->truncate();
+    }
+    echo 'database cleared';
+
+});
 Route::get('/home', 'HomeController@index');
