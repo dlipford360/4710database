@@ -41,7 +41,8 @@ class CreateDrugscriptsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('drugscripts');
         Schema::drop('drugscript_patientvisit');
+
+        Schema::drop('drugscripts');
     }
 }

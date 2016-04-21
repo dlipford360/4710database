@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if($arrazy)
         <div class="container">
             <div class="row">
                 <h1>sql query</h1>
@@ -51,4 +51,8 @@
 
 
         </div> </div>
+
+    @else
+    <h1>no entries</h1>
+    @endif
 @endsection
