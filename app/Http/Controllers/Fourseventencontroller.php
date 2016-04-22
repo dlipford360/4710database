@@ -142,6 +142,22 @@ class Fourseventencontroller extends Controller
 
         return view('staff', compact('staff'));
     }
+
+    public function drugscriptsgreaterthan(){
+
+        $scripts = DB::table('drugscripts')
+            ->orderBy('qty', 'desc')
+            ->get();
+        return view('scripts', compact('scripts'));
+    }
+
+    public function roomisyellow(){
+        $yellow = DB::table('patientvisits')
+            ->where('room_condition', '= ','Yellow')->get();
+
+            return view('yellowroom', compact('yellowroom'));
+    }
+
     public function testpage()
     {
         $test = Test::all();

@@ -33,6 +33,8 @@ Route::get('/4710/room', 'fourseventencontroller@roompage');
 Route::get('/4710/service', 'fourseventencontroller@servicepage');
 Route::get('/4710/staff', 'fourseventencontroller@staffpage');
 Route::get('/4710/test', 'fourseventencontroller@testpage');
+Route::get('/4710/scripts', 'fourseventencontroller@drugscriptsgreaterthan');
+Route::get('/4710/yellowroom','fourseventencontroller@roomisyellow');
 
 
 
